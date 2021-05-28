@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 加入 dtd 约束 可以直接 搜索 mybatis中文文档 点击进去复制下来
+或者 https://mybatis.org/mybatis-3/zh/getting-started.html
+在 入门 选项卡 的 探究已映射的 SQL 语句  里面
+-->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 加入 namespace 命名空间，指向的是 当前接口的全路径 -->
+<mapper namespace="com.xxxx._005_mybatisspringboot.dao.UserMapper">
+    <!-- id：是接口的方法名字  parameterType：是参数的类型   resultType：返回的结果 -->
+    <select id="queryUserByUserName" parameterType="string" resultType="com.xxxx._005_mybatisspringboot.vo.User">
+        <!-- 这里写相应的 sql 语句 -->
+        select * from t_user where user_name = #{userName}
+    </select>
+
+    <select id="queryUserList" resultType="com.xxxx._005_mybatisspringboot.vo.User">
+        select * from t_user
+    </select>
+
+    <insert id="addUser" parameterType="User">
+        insert into t_user(id, user_name, user_pwd) values(#{id}, #{userName}, #{userPwd})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        delete from t_user where id = #{id}
+    </delete>
+
+    <update id="updateUser" parameterType="User">
+        update t_user set user_name = #{userName}, user_pwd = #{userPwd} where id = #{id}
+    </update>
+
+</mapper>
+
+
+
+

@@ -1,0 +1,28 @@
+## 端口号
+server:
+  port: 8080
+
+## 数据源配置
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/springboot_mybatis?useUnicode=true&characterEncoding=utf-8&serverTimezone=UTC
+    username: root
+    password: 123456
+
+## mybatis配置
+mybatis:
+  ## sql映射文件语句放置的地方 mappers/*.xml
+  mapper-locations: classpath:/mappers/*.xml
+  type-aliases-package: com.xxxx._005_mybatisspringboot.vo
+  configuration:
+    ## 下划线转驼峰配置，主要用于数据表字段有下划线的情况，如数据表字段 user_name，就会转为 userName
+    map-underscore-to-camel-case: true
+
+## 日志显示 dao 执行 sql 语句
+logging:
+  level:
+    com:
+      xxxx:
+        _005_mybatisspringboot:
+          dao: debug
