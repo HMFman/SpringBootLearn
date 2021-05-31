@@ -1,0 +1,10 @@
+spring:
+  ## 热部署配置
+  devtools:
+    restart:
+      enabled: true
+      # 设置重启的目录，添加目录的文件需要 restart
+      additional-paths: src/main/java
+      # 解决项目自动重新编译后接口报 404 的问题
+      poll-interval: 3000
+      quiet-period: 1000
